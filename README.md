@@ -1,7 +1,19 @@
 # C# Design Patterns
-Fully functioning sample code for the C# Design Patterns course over at Pluralsight, currently targeting .NET 8.
+Fully functional sample code from Kevin Dockx's *C# Design Patterns* course, built with .NET 8.
 
-The **main** branch exactly matches the course.
-The **latest-and-greatest** branch contains changes that were incorporated after recording.  Most often these changes are language features that are relativley new and/or in preview, like file-scoped namespaces, primary constructors, switch expressions and so on.
+## Design Patterns Covered
+- All 23 Gang of Four (GoF) design patterns.
+- Two additional enterprise patterns:
+  - Repository Pattern.
+  - Unit of Work Pattern.
 
-Kevin Dockx's courses can be found at https://app.pluralsight.com/profile/author/kevin-dockx
+## Repository Structure
+This repository consists of two main folders:
+- **Finished Sample**: Contains all the completed code.
+- **Starter Files**: Code written by me while following the course.
+
+## Course
+[C# Design Patterns](https://app.pluralsight.com/library/courses/c-sharp-10-design-patterns/table-of-contents)
+
+## License
+This project is licensed under the [MIT License](LICENSE).
