@@ -10,4 +10,7 @@ var employee = new Employee("Kevin", manager);
 var employeeClone = (Employee)employee.Clone();
 Console.WriteLine($"Employee was cloned: {employeeClone.Name}, with manager {employeeClone.Manager.Name}");
 
+managerClone.Name = "Karen";
+Console.WriteLine($"Employee was cloned: {employeeClone.Name}, with manager {employeeClone.Manager.Name}");
+
 Console.ReadKey();

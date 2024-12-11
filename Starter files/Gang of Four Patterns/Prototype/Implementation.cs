@@ -1,4 +1,6 @@
-﻿namespace Prototype
+﻿using System.Text.Json;
+
+namespace Prototype
 {
     /// <summary>
     /// Prototype
@@ -6,7 +8,7 @@
     public abstract class Person
     {
         public abstract string Name { get; set; }
-        public abstract Person Clone();
+        public abstract Person Clone(bool deepClone);
     }
 
     /// <summary>
@@ -21,8 +23,13 @@
             Name = name;
         }
 
-        public override Person Clone()
+        public override Person Clone(bool deepClone = false)
         {
+            if (deepClone)
+            {
+                var objectAsJson = JsonSerializer.Serialize(this);
+                return JsonSerializer.Deserialize<Manager>(objectAsJson);
+            }
             return (Person)MemberwiseClone();
         }
     }
@@ -41,8 +48,13 @@
             Manager = manager;
         }
 
-        public override Person Clone()
+        public override Person Clone(bool deepClone = false)
         {
+            if (deepClone)
+            {
+                var objectAsJson = JsonSerializer.Serialize(this);
+                return JsonSerializer.Deserialize<Employee>(objectAsJson);
+            }
             return (Person)MemberwiseClone();
         }
     }
