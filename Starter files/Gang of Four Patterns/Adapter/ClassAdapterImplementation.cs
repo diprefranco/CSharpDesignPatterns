@@ -1,4 +1,4 @@
-﻿namespace ObjectAdapter
+﻿namespace ClassAdapter
 {
     /// <summary>
     /// Helper class we need (not part of the pattern structure)
@@ -54,18 +54,12 @@
     /// <summary>
     /// Adapter
     /// </summary>
-    public class CityAdapter : ICityAdapter
+    public class CityAdapter : ExternalSystem, ICityAdapter
     {
-        /// <summary>
-        /// But to make this compatible, we also want to store an ExternalSystem property.
-        /// In other words, we're going to be using composition to make these two different interfaces or systems compatible.
-        /// </summary>
-        public ExternalSystem ExternalSystem { get; private set; } = new(); //I'm newing it up ad hoc, but you can also inject it.
-
         public City GetCity()
         {
             // call into the external system
-            var cityFromExternalSystem = ExternalSystem.GetCity();
+            var cityFromExternalSystem = base.GetCity();
 
             // adapt the CityFromExternalSystem to City
             return new City($"{cityFromExternalSystem.Name} - {cityFromExternalSystem.NickName}", cityFromExternalSystem.Inhabitants);
